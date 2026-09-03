@@ -2,3 +2,4 @@
 .DS_Store
 .env.exemple
 node_modules
+*.http
