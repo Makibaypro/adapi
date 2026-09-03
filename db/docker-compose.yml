@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: adapi
+    environment:
+      POSTGRES_USER: ada
+      POSTGRES_PASSWORD: ada
+      POSTGRES_DB: adapi
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./migration-up.sql:/docker-entrypoint-initdb.d/migration-up.sql
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+      - adapi-data:/var/lib/postgresql/data
+
+volumes:
+  adapi-data:
